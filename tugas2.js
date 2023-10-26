@@ -1,24 +1,16 @@
-const names = [
+
+const data = [
     'Abigail', 'Alexandra', 'Alison',
     'Amanda', 'Angela', 'Bella',
     'Carol', 'Caroline', 'Carolyn',
     'Deirdre', 'Diana', 'Elizabeth',
     'Ella', 'Faith', 'Olivia', 'Penelope'
   ];
-  
-  function searchName(query, batas, cb) {
-    const hasil = [];
-    names.forEach((nama) => {
-      if (nama.includes(query) && hasil.length < batas) {
-        hasil.push(nama);
-      }
-    });
-    cb(hasil);
+  const searchName = (query,limit)=>{
+  const filterData = (value)=>{
+    const name = value.toLowerCase()
+    return name.includes(query)
   }
-  
-  function displayResults(hasil) {
-    console.log(hasil);
-  }
-  
-  searchName("an", 3, displayResults);
-  
+  console.log(data.filter(filterData).slice(0,limit))
+};
+searchName('an',3)
